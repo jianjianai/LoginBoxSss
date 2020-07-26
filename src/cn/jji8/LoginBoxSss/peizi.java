@@ -42,7 +42,7 @@ public class peizi {
     public peizi(){
         main.getMian().saveResource("peizi.yml",false);
         YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.mian.getDataFolder(),"peizi.yml"));
-        System.out.println("[箱子登入]：§a开始加载配置");
+        System.out.println("[箱子登入X]:§a开始加载配置");
         //string
         if(a.contains("输入你想修改的密码")){ 输入你想修改的密码 = a.getString("输入你想修改的密码");}else{System.out.println("[箱子登入]：§c输入你想修改的密码置文件错误，请检查配置文件");}
         if(a.contains("取消修改密码1")){取消修改密码1 = a.getString("取消修改密码1");}else{System.out.println("[箱子登入]：§c取消修改密码1置文件错误，请检查配置文件");}
@@ -110,6 +110,6 @@ public class peizi {
             WPD.setItemMeta(we);
             物品列表.add(WPD);
         }
-        System.out.println("[箱子登入]：§a配置加载完成");
+        System.out.println("[箱子登入X]:§a配置加载完成");
     }
 }

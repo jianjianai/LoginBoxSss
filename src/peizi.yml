@@ -28,6 +28,7 @@
 #毫秒，1秒等于1000毫秒，只有玩家移动时刷新，这是背包最大刷新数度。
 拾取物品GUG背包刷新速度: 250
 
+
 分割线物品: "PINK_STAINED_GLASS_PANE"
 确定按钮物品: "RED_STAINED_GLASS_PANE"
 重新输入按钮物品: "LIME_STAINED_GLASS_PANE"

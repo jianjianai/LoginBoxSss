@@ -4,15 +4,43 @@ import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.denru;
 import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.kzq;
 import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.zhuce;
 import cn.jji8.LoginBoxSss.main;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
 public class mima {
-    int wuping[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1};
-    int shuliang[] = {1,1,1,1,1,1,1,1,1};
-    int zhizheng=0;
+    public int wuping[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1};
+    public int shuliang[] = {1,1,1,1,1,1,1,1,1};
+    public int zhizheng=0;
     String mima;
+    wanjia wanjia;
+    mima(wanjia a){
+        wanjia = a;
+    }
+    public void suru(int i){
+        boolean sss = true;
+        if(zhizheng-1>=0){
+            if(wuping[zhizheng-1]==i){
+                if(shuliang[zhizheng-1]<64){
+                    sss = false;
+                    shuliang[zhizheng-1] = shuliang[zhizheng-1]+1;
+                    if(main.getPeizi().声音){
+                        wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,0);
+                    }
+                }
+            }
+        }
+        if(sss){
+            if(zhizheng<=8){
+                wuping[zhizheng]=i;
+                zhizheng = zhizheng+1;
+                if(main.getPeizi().声音){
+                    wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,1);
+                }
+            }
+        }
+    }
     @Override
     public String toString() {
         StringBuffer to = new StringBuffer();
@@ -31,20 +59,21 @@ public class mima {
         return mima;
     }
     public kzq duqumima(String wanjia){
-        YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),wanjia+".yml"));
+        System.out.println("加载密码");
+        YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
         if(a.contains("密码")){
             mima = a.getString("密码");
-            return new denru();
+            return new denru(this.wanjia);
         }
         return new zhuce();
     }
     public void ziduqumima(String wanjia){
-        YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),wanjia+".yml"));
+        YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
         mima = a.getString("密码");
     }
     public void baocunmima(String wanjia){
         File File;
-        YamlConfiguration a = YamlConfiguration.loadConfiguration(File = new File(main.getMian().getDataFolder(),wanjia+".yml"));
+        YamlConfiguration a = YamlConfiguration.loadConfiguration(File = new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
         a.set("密码",toString());
     }
 }

@@ -10,13 +10,16 @@ public class main extends JavaPlugin {
     public static main getMian() {
         return mian;
     }
+    public static peizi getPeizi() {
+        return peizi;
+    }
 
     public void onEnable(){
         mian = this;
         peizi = new peizi();
         //注册玩家控制器
-        System.out.println("登入控制器注册");
-        dengrukongzhiqi dengrukongzhiqi  = new dengrukongzhiqi ();
+        System.out.println("[箱子登入X]:登入控制器注册");
+        dengrukongzhiqi dengrukongzhiqi  = new dengrukongzhiqi();
         Bukkit.getPluginManager().registerEvents(dengrukongzhiqi,this);
     }
 }
