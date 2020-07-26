@@ -26,7 +26,7 @@ public class denru implements kzq {
                 wanjia.getMima().chongzimima();
                 xiangzi.chuangjianxiangzi(main.getPeizi().登入);
                 xiangzi.xianshimima(wanjia.getMima());
-                xiangzi.xianshimima(wanjia.getMima());
+                xiangzi.dakaixiangzi(wanjia.getP());
             }else if(dianjiweizi==44){
                 wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,2);
                 if(wanjia.getMima().bijiaomima()){
