@@ -13,7 +13,7 @@ import java.util.List;
 
 public class peizi {
 
-    public int 登入超时时间,拾取物品GUG背包刷新速度;
+    public int 登入超时时间;
 
     public String 登入;
     public String 登入超时踢出玩家提示消息;
@@ -32,7 +32,7 @@ public class peizi {
 
     public boolean 登入时旁观者模式;
     public boolean 声音;
-    public boolean 登入超时踢出玩家,拾取物品GUG后客户端不显示修复;
+    public boolean 登入超时踢出玩家;
 
     public GameMode 服务器游戏模式;
 
@@ -73,7 +73,6 @@ public class peizi {
         try {  确定按钮物品 = new ItemStack(Material.getMaterial(a.getString("确定按钮物品")));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c确定按钮物品配置文件错误，已替换为基岩，请检查配置文件"); 确定按钮物品 = new ItemStack(Material.BEDROCK);}
         try { 重新输入按钮物品 = new ItemStack(Material.getMaterial(a.getString("重新输入按钮物品")));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c重新输入按钮物品配置文件错误，已替换为基岩，请检查配置文件"); 重新输入按钮物品 = new ItemStack(Material.BEDROCK);}
         //booble
-        if(a.contains("拾取物品GUG后客户端不显示修复")){ 拾取物品GUG后客户端不显示修复=a.getBoolean("拾取物品GUG后客户端不显示修复");}else{System.out.println("[箱子登入]：§c拾取物品GUG后客户端不显示修复配置文件错误，请检查配置文件");}
         if(a.contains("登入时旁观者模式")){ 登入时旁观者模式=a.getBoolean("登入时旁观者模式");}else{System.out.println("[箱子登入]：§c登入时旁观者模式配置文件错误，请检查配置文件");}
         if(a.contains("登入超时踢出玩家")){  登入超时踢出玩家=a.getBoolean("登入超时踢出玩家");}else{System.out.println("[箱子登入]：§c登入超时踢出玩家配置文件错误，请检查配置文件"); }
         if(a.contains("声音")){  声音=a.getBoolean("声音");}else{System.out.println("[箱子登入]：§c声音配置文件错误，请检查配置文件"); }
@@ -81,7 +80,6 @@ public class peizi {
         try {  服务器游戏模式 = GameMode.valueOf(a.getString("服务器游戏模式"));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c服务器游戏模式配置文件错误已自动设置为生存，请检查配置文件"); 服务器游戏模式 = GameMode.SURVIVAL;}
         //int
         if(a.contains("登入超时时间")){  登入超时时间 = a.getInt("登入超时时间");}else{System.out.println("[箱子登入]：§c登入超时时间配置文件错误，请检查配置文件");}
-        if(a.contains("拾取物品GUG背包刷新速度")){  拾取物品GUG背包刷新速度= a.getInt("拾取物品GUG背包刷新速度");}else{System.out.println("[箱子登入]：§c拾取物品GUG背包刷新速度配置文件错误，请检查配置文件");}
         //list
         List wp = a.getStringList("选择物品");
         List mz = a.getStringList("名字");

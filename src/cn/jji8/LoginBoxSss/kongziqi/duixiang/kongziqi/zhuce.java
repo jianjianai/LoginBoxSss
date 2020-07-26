@@ -28,14 +28,18 @@ public class zhuce implements kzq {
             wanjia.getMima().suru(dianjiweizi);
             xiangzi.xianshimima(wanjia.getMima());
         }else if(dianjiweizi==36){
-            wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,2);
+            if(main.getPeizi().声音){
+                wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,2);
+            }
             wanjia.getMima().chongzimima();
             xiangzi.chuangjianxiangzi(main.getPeizi().注册);
             xiangzi.xianshimima(wanjia.getMima());
             xiangzi.dakaixiangzi(wanjia.getP());
             chongfu = false;
         }else if(dianjiweizi==44){
-            wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,2);
+            if(main.getPeizi().声音){
+                wanjia.getP().playSound(wanjia.getP().getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,30,2);
+            }
             if(!chongfu){
                 mima = wanjia.getMima().toString();
                 wanjia.getMima().chongzimima();
