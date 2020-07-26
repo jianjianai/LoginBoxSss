@@ -18,6 +18,14 @@ public class mima {
     mima(wanjia a){
         wanjia = a;
     }
+    public boolean bijiaomima(){
+        return toString().equals(mima);
+    }
+    public void chongzimima(){//重置密码
+        wuping = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1};
+        shuliang = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1};
+        zhizheng=0;
+    }
     public void suru(int i){
         boolean sss = true;
         if(zhizheng-1>=0){
