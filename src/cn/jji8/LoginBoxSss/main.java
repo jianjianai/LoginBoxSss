@@ -2,6 +2,7 @@ package cn.jji8.LoginBoxSss;
 
 import cn.jji8.LoginBoxSss.kongziqi.dengrukongzhiqi;
 import cn.jji8.LoginBoxSss.kongziqi.wanjiakongzhiqi;
+import cn.jji8.LoginBoxSss.ml.qxcxzc;
 import cn.jji8.LoginBoxSss.ml.xgmm;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,6 +29,7 @@ public class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(dengrukongzhiqi,this);
         //注册命令
         Bukkit.getPluginCommand("修改密码").setExecutor(new xgmm());
+        Bukkit.getPluginCommand("强制玩家重新注册").setExecutor(new qxcxzc());
 
         Bukkit.getLogger().info("[箱子登入X]:载入完成");
     }

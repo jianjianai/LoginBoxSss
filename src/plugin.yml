@@ -10,12 +10,6 @@ commands:
     permission: 箱子登入.修改密码
     permission-message: "你没有权限执行此命令"
     usage: /<command>
-  箱子登入重载配置:
-    aliases: [xzdrczpz, xzdrreload]
-    description: "箱子登入插件的命令"
-    permission: 箱子登入.重载配置
-    permission-message: "你没有权限执行此命令"
-    usage: /<command>
   强制玩家重新注册:
     aliases: [qzwjcxzc, qiangziwenjiacongxingzhuche]
     description: "强制玩家重新注册"
