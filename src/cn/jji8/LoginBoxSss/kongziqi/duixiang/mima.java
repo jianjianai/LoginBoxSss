@@ -4,10 +4,12 @@ import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.denru;
 import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.kzq;
 import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.zhuce;
 import cn.jji8.LoginBoxSss.main;
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 
 public class mima {
     public int wuping[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1};
@@ -67,13 +69,12 @@ public class mima {
         return mima;
     }
     public kzq duqumima(String wanjia){
-        System.out.println("加载密码");
         YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
         if(a.contains("密码")){
             mima = a.getString("密码");
-            return new denru(this.wanjia);
+            return new denru(this.wanjia.getP());
         }
-        return new zhuce(this.wanjia);
+        return new zhuce(this.wanjia.getP());
     }
     public void ziduqumima(String wanjia){
         YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
@@ -83,5 +84,11 @@ public class mima {
         File File;
         YamlConfiguration a = YamlConfiguration.loadConfiguration(File = new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
         a.set("密码",toString());
+        try {
+            a.save(File);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Bukkit.getLogger().warning("[箱子登入X]:密码保存失败,玩家密码未保存，请检查写入权限，或磁盘空间");
+        }
     }
 }

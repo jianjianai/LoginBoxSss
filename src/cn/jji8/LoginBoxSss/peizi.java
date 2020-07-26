@@ -1,5 +1,6 @@
 package cn.jji8.LoginBoxSss;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -21,7 +22,7 @@ public class peizi {
     public String 密码错误;
     public String 两次密码不一致;
     public String 取消 ;
-    public String 登入成功1,登入成功2,登入成功后台执行命令,注册成功1,注册成功2,注册成功后台执行命令,修改密码箱子标题;
+    public String 登入成功1,登入成功2,登入成功后台执行命令,注册成功1,注册成功2,注册成功后台执行命令,修改密码箱子标题,修改成功1,修改成功2;
 
     public String 分割线;
     public String 确定,取消修改密码1,取消修改密码2,输入你想修改的密码;
@@ -42,8 +43,10 @@ public class peizi {
     public peizi(){
         main.getMian().saveResource("peizi.yml",false);
         YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.mian.getDataFolder(),"peizi.yml"));
-        System.out.println("[箱子登入X]:§a开始加载配置");
+        Bukkit.getLogger().info("[箱子登入X]:§a开始加载配置");
         //string
+        if(a.contains("修改成功1")){ 修改成功1 = a.getString("修改成功1");}else{System.out.println("[箱子登入]：§c修改成功1置文件错误，请检查配置文件");}
+        if(a.contains("修改成功2")){ 修改成功2 = a.getString("修改成功2");}else{System.out.println("[箱子登入]：§c修改成功2置文件错误，请检查配置文件");}
         if(a.contains("输入你想修改的密码")){ 输入你想修改的密码 = a.getString("输入你想修改的密码");}else{System.out.println("[箱子登入]：§c输入你想修改的密码置文件错误，请检查配置文件");}
         if(a.contains("取消修改密码1")){取消修改密码1 = a.getString("取消修改密码1");}else{System.out.println("[箱子登入]：§c取消修改密码1置文件错误，请检查配置文件");}
         if(a.contains("取消修改密码2")){取消修改密码2 = a.getString("取消修改密码2");}else{System.out.println("[箱子登入]：§c取消修改密码2配置文件错误，请检查配置文件");}
@@ -110,6 +113,6 @@ public class peizi {
             WPD.setItemMeta(we);
             物品列表.add(WPD);
         }
-        System.out.println("[箱子登入X]:§a配置加载完成");
+        Bukkit.getLogger().info("[箱子登入X]:§a配置加载完成");
     }
 }

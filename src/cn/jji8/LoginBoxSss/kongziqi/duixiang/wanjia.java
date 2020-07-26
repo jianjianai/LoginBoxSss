@@ -8,7 +8,6 @@ public class wanjia {
     kzq kzq;
     mima mima;
     public wanjia(Player a){
-        System.out.println("构造玩家对象");
         P = a;
         mima = new mima(this);
         kzq = mima.duqumima(a.getName());
@@ -16,10 +15,13 @@ public class wanjia {
     public wanjia(Player a, kzq b){
         kzq = b;
         P = a;
+        mima = new mima(this);
+        mima.ziduqumima(a.getName());
     }
     public void dianji(int dianjiweizi){
         kzq.dianji(this,dianjiweizi);
     }
+    public void dakai(){kzq.dakai(this);}
 
     public Player getP() {
         return P;

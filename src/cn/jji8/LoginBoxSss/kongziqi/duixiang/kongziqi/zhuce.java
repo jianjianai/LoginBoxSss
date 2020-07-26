@@ -3,22 +3,27 @@ package cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi;
 import cn.jji8.LoginBoxSss.kongziqi.dengrukongzhiqi;
 import cn.jji8.LoginBoxSss.kongziqi.duixiang.kongziqi.xiangzi.xiangzi;
 import cn.jji8.LoginBoxSss.kongziqi.duixiang.wanjia;
+import cn.jji8.LoginBoxSss.kongziqi.wanjiakongzhiqi;
+import cn.jji8.LoginBoxSss.kongziqi.wanjiasezi;
 import cn.jji8.LoginBoxSss.main;
+import org.bukkit.GameMode;
 import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 
 public class zhuce implements kzq {
     xiangzi xiangzi;
-    wanjia wanjia;
     boolean chongfu = false;
     String mima;
-    public zhuce(wanjia a){
-        wanjia = a;
-        xiangzi = new xiangzi(a.getP().getName());
+    public zhuce(Player a){
+        if(main.getPeizi().登入时旁观者模式){
+            a.getPlayer().setGameMode(GameMode.SPECTATOR);
+        }
+        xiangzi = new xiangzi(a.getName());
         xiangzi.chuangjianxiangzi(main.getPeizi().注册);
-        xiangzi.dakaixiangzi(a.getP());
+        xiangzi.dakaixiangzi(a);
     }
     @Override
-    public void dianji(wanjia a, int dianjiweizi) {
+    public void dianji(wanjia wanjia, int dianjiweizi) {
         if(dianjiweizi>=0&dianjiweizi<=35){
             wanjia.getMima().suru(dianjiweizi);
             xiangzi.xianshimima(wanjia.getMima());
@@ -40,9 +45,19 @@ public class zhuce implements kzq {
                 chongfu = true;
             }else {
                 if(mima.equals(wanjia.getMima().toString())){
-                    wanjia.getMima().baocunmima(wanjia.getP().getName());
                     wanjia.getP().closeInventory();
-                    dengrukongzhiqi.biao.remove(wanjia.getP().getName());
+                    wanjiasezi.setwanjiayidengru(wanjia.getP().getName());
+                    wanjia.getP().sendTitle(main.getPeizi().注册成功1.replaceAll("%玩家%",wanjia.getP().getName()),main.getPeizi().注册成功2.replaceAll("%玩家%",wanjia.getP().getName()),10,40,10);
+                    if(main.getPeizi().登入时旁观者模式){
+                        wanjia.getP().setGameMode(main.getPeizi().服务器游戏模式);
+                    }
+                    Thread T = new Thread(){
+                        @Override
+                        public void run() {
+                            wanjia.getMima().baocunmima(wanjia.getP().getName());
+                        }
+                    };
+                    T.start();
                 }else {
                     wanjia.getMima().chongzimima();
                     xiangzi.chuangjianxiangzi(main.getPeizi().两次密码不一致);
@@ -51,5 +66,9 @@ public class zhuce implements kzq {
                 }
             }
         }
+    }
+    @Override
+    public void dakai(wanjia a) {
+        xiangzi.dakaixiangzi(a.getP());
     }
 }
