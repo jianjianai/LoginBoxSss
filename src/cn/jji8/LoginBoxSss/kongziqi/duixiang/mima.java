@@ -73,7 +73,7 @@ public class mima {
             mima = a.getString("密码");
             return new denru(this.wanjia);
         }
-        return new zhuce();
+        return new zhuce(this.wanjia);
     }
     public void ziduqumima(String wanjia){
         YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
