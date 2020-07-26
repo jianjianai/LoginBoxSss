@@ -1,5 +1,6 @@
 package cn.jji8.LoginBoxSss;
 
+import cn.jji8.LoginBoxSss.chaoshiguanli.chaoshiguanli;
 import cn.jji8.LoginBoxSss.kongziqi.dengrukongzhiqi;
 import cn.jji8.LoginBoxSss.kongziqi.wanjiakongzhiqi;
 import cn.jji8.LoginBoxSss.ml.qxcxzc;
@@ -30,6 +31,12 @@ public class main extends JavaPlugin {
         //注册命令
         Bukkit.getPluginCommand("修改密码").setExecutor(new xgmm());
         Bukkit.getPluginCommand("强制玩家重新注册").setExecutor(new qxcxzc());
+        //超时管理
+        if(peizi.登入超时踢出玩家){
+            chaoshiguanli chaoshiguanli = new chaoshiguanli();
+            Bukkit.getPluginManager().registerEvents(chaoshiguanli,this);
+        }
+
 
         Bukkit.getLogger().info("[箱子登入X]:载入完成");
     }
