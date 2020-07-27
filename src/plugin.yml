@@ -1,18 +1,18 @@
 name: LoginBoxSss
 main: cn.jji8.LoginBoxSss.main
-version: 1.4
+version: 1.4.2
 author: jianjianai
 api-version: 1.13
 commands:
-  修改密码:
-    aliases: [xiugaimima, xgmm]
+  xgmm:
+    aliases: [xiugaimima, xgmm,changepassword,cpw,修改密码]
     description: "箱子登入插件的命令"
-    permission: 箱子登入.修改密码
+    permission: LoginBoxSss.xgmm
     permission-message: "你没有权限执行此命令"
     usage: /<command>
-  强制玩家重新注册:
-    aliases: [qzwjcxzc, qiangziwenjiacongxingzhuche]
+  qzwjcxzc:
+    aliases: [qzwjcxzc, qiangziwenjiacongxingzhuche,强制玩家重新注册]
     description: "强制玩家重新注册"
-    permission: 箱子登入.强制玩家重新注册
+    permission: LoginBoxSss.qzwjcxzc
     permission-message: "你没有权限执行此命令"
     usage: /<command> 玩家

@@ -30,8 +30,8 @@ public class main extends JavaPlugin {
         dengrukongzhiqi dengrukongzhiqi  = new dengrukongzhiqi();
         Bukkit.getPluginManager().registerEvents(dengrukongzhiqi,this);
         //注册命令
-        Bukkit.getPluginCommand("修改密码").setExecutor(new xgmm());
-        Bukkit.getPluginCommand("强制玩家重新注册").setExecutor(new qxcxzc());
+        Bukkit.getPluginCommand("xgmm").setExecutor(new xgmm());
+        Bukkit.getPluginCommand("qzwjcxzc").setExecutor(new qxcxzc());
         //超时管理
         if(peizi.登入超时踢出玩家){
             chaoshiguanli chaoshiguanli = new chaoshiguanli();
