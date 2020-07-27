@@ -69,7 +69,12 @@ public class mima {
         return mima;
     }
     public kzq duqumima(String wanjia){
-        YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
+        YamlConfiguration a;
+        if(main.getPeizi().bc模式){
+            a = YamlConfiguration.loadConfiguration(new File(main.getPeizi().工作路径,"mima/"+wanjia+".yml"));
+        }else {
+            a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
+        }
         if(a.contains("密码")){
             mima = a.getString("密码");
             return new denru(this.wanjia.getP());
@@ -77,12 +82,22 @@ public class mima {
         return new zhuce(this.wanjia.getP());
     }
     public void ziduqumima(String wanjia){
-        YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
+        YamlConfiguration a;
+        if(main.getPeizi().bc模式){
+            a = YamlConfiguration.loadConfiguration(new File(main.getPeizi().工作路径,"mima/"+wanjia+".yml"));
+        }else {
+            a = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
+        }
         mima = a.getString("密码");
     }
     public void baocunmima(String wanjia){
         File File;
-        YamlConfiguration a = YamlConfiguration.loadConfiguration(File = new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
+        YamlConfiguration a;
+        if(main.getPeizi().bc模式){
+            a = YamlConfiguration.loadConfiguration(File = new File(main.getPeizi().工作路径,"mima/"+wanjia+".yml"));
+        }else {
+            a = YamlConfiguration.loadConfiguration(File = new File(main.getMian().getDataFolder(),"mima/"+wanjia+".yml"));
+        }
         a.set("密码",toString());
         try {
             a.save(File);

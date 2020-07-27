@@ -2,6 +2,7 @@ package cn.jji8.LoginBoxSss;
 
 import cn.jji8.LoginBoxSss.chaoshiguanli.chaoshiguanli;
 import cn.jji8.LoginBoxSss.ip.ipxianzi;
+import cn.jji8.LoginBoxSss.kongziqi.BCmoshi;
 import cn.jji8.LoginBoxSss.kongziqi.dengrukongzhiqi;
 import cn.jji8.LoginBoxSss.kongziqi.wanjiakongzhiqi;
 import cn.jji8.LoginBoxSss.ml.qxcxzc;
@@ -41,6 +42,12 @@ public class main extends JavaPlugin {
         if(peizi.ip管理器){
             ipxianzi ipxianzi = new ipxianzi();
             Bukkit.getPluginManager().registerEvents(ipxianzi,this);
+        }
+        //ip限制
+        if(peizi.bc模式){
+            Bukkit.getLogger().info("[箱子登入X]:BC模式开启，工作路径是："+peizi.bc模式);
+            BCmoshi BCmoshi = new BCmoshi();
+            Bukkit.getPluginManager().registerEvents(BCmoshi,this);
         }
         Bukkit.getLogger().info("[箱子登入X]:载入完成");
     }
