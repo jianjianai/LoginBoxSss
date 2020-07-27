@@ -30,7 +30,7 @@ public class peizi {
 
     public List 物品列表;
 
-    public boolean 登入时旁观者模式;
+    public boolean 登入时旁观者模式,ip管理器;
     public boolean 声音;
     public boolean 登入超时踢出玩家;
 
@@ -73,6 +73,7 @@ public class peizi {
         try {  确定按钮物品 = new ItemStack(Material.getMaterial(a.getString("确定按钮物品")));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c确定按钮物品配置文件错误，已替换为基岩，请检查配置文件"); 确定按钮物品 = new ItemStack(Material.BEDROCK);}
         try { 重新输入按钮物品 = new ItemStack(Material.getMaterial(a.getString("重新输入按钮物品")));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c重新输入按钮物品配置文件错误，已替换为基岩，请检查配置文件"); 重新输入按钮物品 = new ItemStack(Material.BEDROCK);}
         //booble
+        if(a.contains("ip管理器")){ ip管理器=a.getBoolean("ip管理器");}else{System.out.println("[箱子登入]：§cip管理器配置文件错误，请检查配置文件");}
         if(a.contains("登入时旁观者模式")){ 登入时旁观者模式=a.getBoolean("登入时旁观者模式");}else{System.out.println("[箱子登入]：§c登入时旁观者模式配置文件错误，请检查配置文件");}
         if(a.contains("登入超时踢出玩家")){  登入超时踢出玩家=a.getBoolean("登入超时踢出玩家");}else{System.out.println("[箱子登入]：§c登入超时踢出玩家配置文件错误，请检查配置文件"); }
         if(a.contains("声音")){  声音=a.getBoolean("声音");}else{System.out.println("[箱子登入]：§c声音配置文件错误，请检查配置文件"); }
