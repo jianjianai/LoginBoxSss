@@ -74,6 +74,9 @@ public class xiugaimima implements kzq {
                         wanjia.getP().closeInventory();
                         wanjiasezi.setwanjiayidengru(wanjia.getP().getName());
                         wanjia.getP().sendTitle(main.getPeizi().修改成功1.replaceAll("%玩家%",wanjia.getP().getName()),main.getPeizi().修改成功2.replaceAll("%玩家%",wanjia.getP().getName()),10,40,10);
+                        if(main.getPeizi().登入时旁观者模式){
+                            wanjia.getP().setGameMode(main.getPeizi().服务器游戏模式);
+                        }
                     }else {
                         wanjia.getMima().chongzimima();
                         xiangzi.chuangjianxiangzi(main.getPeizi().两次密码不一致);
