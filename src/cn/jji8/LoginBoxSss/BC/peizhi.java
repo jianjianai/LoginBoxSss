@@ -7,10 +7,10 @@ import net.md_5.bungee.config.YamlConfiguration;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.function.Supplier;
 
 public class peizhi {
     String 工作路径;
+    boolean 后台更多信息;
     peizhi(){
         main.main.getLogger().info("开始加载配置文件");
         Configuration peizhi = null;
@@ -43,6 +43,19 @@ public class peizhi {
                 main.main.getLogger().warning("配置文件保存异常！");
             }
         }
+        if(peizhi.contains("后台更多信息")){
+            后台更多信息 = peizhi.getBoolean("后台更多信息");
+        }else {
+            peizhi.set("后台更多信息",true);
+            后台更多信息 = true;
+            try {
+                ConfigurationProvider.getProvider(YamlConfiguration.class).save(peizhi, new File(main.main.getDataFolder(), "peizi.yml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+                main.main.getLogger().warning("配置文件保存异常！");
+            }
+        }
+
         main.main.getLogger().info("工作路径是："+工作路径);
         main.main.getLogger().info("配置文件加载完成");
     }

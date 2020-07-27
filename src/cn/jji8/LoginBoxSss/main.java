@@ -45,7 +45,7 @@ public class main extends JavaPlugin {
         }
         //ip限制
         if(peizi.bc模式){
-            Bukkit.getLogger().info("[箱子登入X]:BC模式开启，工作路径是："+peizi.bc模式);
+            Bukkit.getLogger().info("[箱子登入X]:BC模式开启，工作路径是："+peizi.工作路径);
             BCmoshi BCmoshi = new BCmoshi();
             Bukkit.getPluginManager().registerEvents(BCmoshi,this);
         }
