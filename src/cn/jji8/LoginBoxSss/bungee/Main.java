@@ -29,17 +29,17 @@ public class Main extends Plugin implements Listener {
     public void onPostLogin(PostLoginEvent event) {
         if(WrappedConfiguration.verbose){System.out.println("玩家"+event.getPlayer().getName()+"连接BC，准备连接到子服务器服务器");}
         File File = new File(WrappedConfiguration.workdir +"/登入状态", event.getPlayer().getName()+".yml");
-        Configuration wanjiawenjian;
+        Configuration playerFile;
         try {
-            wanjiawenjian = ConfigurationProvider.getProvider(YamlConfiguration.class).load(File);
+            playerFile = ConfigurationProvider.getProvider(YamlConfiguration.class).load(File);
         } catch (IOException e) {
             if(WrappedConfiguration.verbose){System.out.println("没有找到"+ WrappedConfiguration.workdir +"/登入状态/"+event.getPlayer().getName()+".yml文件，他一定是个新玩家吧！");}
             return;
         }
-        if(wanjiawenjian.getBoolean("已登入")){
-            wanjiawenjian.set("已登入",false);
+        if(playerFile.getBoolean("已登入")){
+            playerFile.set("已登入",false);
             try {
-                ConfigurationProvider.getProvider(YamlConfiguration.class).save(wanjiawenjian,File);
+                ConfigurationProvider.getProvider(YamlConfiguration.class).save(playerFile,File);
             } catch (IOException e) {
                 e.printStackTrace();
                 getLogger().warning("设置玩家已登入状态为false失败，这样会导致玩家不需要登入,请检查文件读写权限或磁盘空间。");

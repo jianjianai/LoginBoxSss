@@ -12,19 +12,19 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
     static Main main;
-    static WrappedConfiguration WrappedConfiguration;
+    static WrappedConfiguration wrappedConfiguration;
     public static Main getMain() {
         return main;
     }
     public static WrappedConfiguration getWrappedConfiguration() {
-        return WrappedConfiguration;
+        return wrappedConfiguration;
     }
 
     public void onEnable(){
         Bukkit.getLogger().info("[箱子登入X]:正在载入...");
         main = this;
         saveDefaultConfig();
-        WrappedConfiguration = new WrappedConfiguration();
+        wrappedConfiguration = new WrappedConfiguration();
         //注册玩家控制器
         PlayerListener playerListener = new PlayerListener();
         Bukkit.getPluginManager().registerEvents(playerListener,this);
@@ -35,18 +35,18 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("xgmm").setExecutor(new ChangePasswordCommand());
         Bukkit.getPluginCommand("qzwjcxzc").setExecutor(new ForceUnregisterCommand());
         //超时管理
-        if(WrappedConfiguration.kickPlayerOnTimeout){
+        if(wrappedConfiguration.kickPlayerOnTimeout){
             TimeoutHandler TimeoutHandler = new TimeoutHandler();
             Bukkit.getPluginManager().registerEvents(TimeoutHandler,this);
         }
         //ip限制
-        if(WrappedConfiguration.ipManager){
+        if(wrappedConfiguration.ipManager){
             IpManager ipManager = new IpManager();
             Bukkit.getPluginManager().registerEvents(ipManager,this);
         }
         //ip限制
-        if(WrappedConfiguration.bungeeMode){
-            Bukkit.getLogger().info("[箱子登入X]:BC模式开启，工作路径是："+ WrappedConfiguration.workDir);
+        if(wrappedConfiguration.bungeeMode){
+            Bukkit.getLogger().info("[箱子登入X]:BC模式开启，工作路径是："+ wrappedConfiguration.workDir);
             BungeeHandler bungeeHandler = new BungeeHandler();
             Bukkit.getPluginManager().registerEvents(bungeeHandler,this);
         }
