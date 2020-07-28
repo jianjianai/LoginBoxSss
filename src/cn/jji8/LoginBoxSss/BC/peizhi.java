@@ -12,7 +12,7 @@ public class peizhi {
     String 工作路径;
     boolean 后台更多信息;
     peizhi(){
-        main.main.getLogger().info("开始加载配置文件");
+        main.main.getLogger().info("[箱子登入X]:开始加载配置文件");
         Configuration peizhi = null;
         File File = null;
         try {
@@ -23,11 +23,11 @@ public class peizhi {
             try {
                 FileWriter FileWriter = new FileWriter(File);
                 FileWriter.close();
-                main.main.getLogger().info("配置文件创建成功！");
+                main.main.getLogger().info("[箱子登入X]:配置文件创建成功！");
                 peizhi = ConfigurationProvider.getProvider(YamlConfiguration.class).load(File);
             }catch (IOException g) {
                 g.printStackTrace();
-                main.main.getLogger().warning("配置文件创建失败！");
+                main.main.getLogger().warning("[箱子登入X]:配置文件创建失败！");
             }
 
         }
@@ -52,11 +52,10 @@ public class peizhi {
                 ConfigurationProvider.getProvider(YamlConfiguration.class).save(peizhi, new File(main.main.getDataFolder(), "peizi.yml"));
             } catch (IOException e) {
                 e.printStackTrace();
-                main.main.getLogger().warning("配置文件保存异常！");
+                main.main.getLogger().warning("[箱子登入X]:配置文件保存异常！");
             }
         }
-
-        main.main.getLogger().info("工作路径是："+工作路径);
-        main.main.getLogger().info("配置文件加载完成");
+        main.main.getLogger().info("[箱子登入X]:工作路径是："+工作路径);
+        main.main.getLogger().info("[箱子登入X]:配置文件加载完成");
     }
 }
