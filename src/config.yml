@@ -1,0 +1,163 @@
+repeatMessage: "§2请再摆放一次确保你记住了你摆放的物品哦！"
+splitLine: "§d我只是一个可爱的分割线啦！"
+loginMessage: "§d按照你上次摆放的样子摆放我就知道你还是之前那个可爱的你啦！"
+registerMessage: "§ehi你好啊，第一次来吧！点击你喜欢的物品吧！要记住哦。"
+confirm: "§2我摆好了！"
+cancel: "§d我要重新摆！"
+spectatorBeforeLogin: true
+serverGameMode: "SURVIVAL"
+playSound: true
+wrongPassword: "§d你摆放的方式和以前不同了，我不喜欢你了！"
+notSamePassword: "§e哈哈，你好像记错了。"
+loginSuccess1: "欢迎回来 %玩家%"
+loginSuccess2: "我想死你了 %玩家%"
+commandAfterLogin: "reg %玩家%66666"
+registerSuccess1: "欢迎大佬入住本服务器"
+registerSuccess2: "§d%玩家% 你这么可爱，应该是个大佬吧！"
+commandAfterRegisteration: "reg %玩家%66666"
+kickPlayerOnTimeout: true
+timeout: 120
+ipManager: true
+timeOutMessage: "你为什么不登入啊，一直不登入我生气了，哼！"
+changePasswordTitle: "§e你要修改密码吗？先输入一次你的密码，让我知道是不是有坏人想盗你号！"
+cancelPasswordChanging1: "你取消了修改密码"
+cancelPasswordChanging2: "你不修改密码干嘛麻烦我！"
+changePasswordMessage: "§a输入你想修改的密码吧！"
+passwordChangeSuccessfully1: "修改密码成功"
+passwordChangeSuccessfully2: "为什么要改密码？之前的不是挺好吗？"
+
+#bc模式，群组服专用，所有服务器全部设置相同的工作路径，并且在bc上也安装本插件，即可进入服务器只登入一次，不必每次切换服务器都登入。
+#如果使用了本模式请关掉 “ip管理器” 或者设置单个ip最大进入玩家99999，单个ip最大注册玩家999999
+#建议配合 https://www.mcbbs.net/thread-1084924-1-1.html 插件一起使用，多个服务器同步背包。
+bungeeMode: false
+workdir: "C:/workdir"
+
+
+splitItem: "PINK_STAINED_GLASS_PANE"
+confirmButton: "RED_STAINED_GLASS_PANE"
+reinputButton: "LIME_STAINED_GLASS_PANE"
+选择物品:
+  - "BONE"
+  - "SUGAR"
+  - "BELL"
+  - "LANTERN"
+  - "CAMPFIRE"
+  - "SOUL_CAMPFIRE"
+  - "WHITE_BED"
+  - "PLAYER_HEAD"
+  - "CAMPFIRE"
+  - "TRAPPED_CHEST"
+  - "LECTERN"
+  - "ELYTRA"
+  - "DARK_OAK_BOAT"
+  - "SADDLE"
+  - "DIAMOND"
+  - "IRON_INGOT"
+  - "EMERALD"
+  - "GOLD_INGOT"
+  - "PAPER"
+  - "BLAZE_ROD"
+  - "SHULKER_SHELL"
+  - "BRICK"
+  - "BEACON"
+  - "CONDUIT"
+  - "SCUTE"
+  - "WHEAT"
+  - "NETHER_STAR"
+  - "NETHER_WART"
+  - "ARROW"
+  - "BOW"
+  - "DIAMOND_SWORD"
+  - "DIAMOND_CHESTPLATE"
+  - "CHAINMAIL_HELMET"
+  - "GOLDEN_LEGGINGS"
+  - "TRIDENT"
+  - "CROSSBOW"
+#名字填""表示不设置
+名字:
+  - "我是一个小骨头"
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - "我是一个三叉积"
+  - ""
+lore:
+  -
+    - "我是只是一个小骨头"
+    - "不要点我"
+  -
+    - "啦啦啦，选我"
+  -
+    - "别选他"
+  -
+    - "呜呜呜，没人要我"
+  -
+  -
+  -
+  -
+  -
+  -
+    - "上面的都是垃圾"
+  -
+    - "我左边的才是垃圾"
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+    - "看不见我，看不见我"
+  -
+  -
+  -
+  -
+  -
+  -
+    - "选我"
+  -
+    - "选他"
+  -
+    - "吃瓜"
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+    - "我是最后一个"
+    - "heheh"
