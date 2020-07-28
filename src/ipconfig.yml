@@ -1,0 +1,9 @@
+maxJoinedPlayerPerIp: 10
+maxRegistrationPerIp: 10
+joinMessage: "%玩家% 进入了游戏"
+leaveMessage: "%玩家% 离开了游戏"
+loginMessage: "%玩家% 成功登入了游戏"
+#玩家成功注册时广播消息: "欢迎新玩家%玩家%进入游戏"
+maxIpKickMessage: "%玩家%你的ip已经登入了好多账号了，我生气了，哼！"
+maxIpRegisterationMessage: "不可以再注册了哦。"
+maxIpRegisterationMessage2: "%玩家%你的ip已经注册了好多账号了，我生气了，哼！"
