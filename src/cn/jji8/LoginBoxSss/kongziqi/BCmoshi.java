@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +23,15 @@ public class BCmoshi implements Listener{
                 File File = new File(main.getPeizi().工作路径 + "/登入状态/" + a.getPlayer().getName()+".yml");
                 YamlConfiguration wanjiawenjian = YamlConfiguration.loadConfiguration(File);
                 if(wanjiawenjian.getBoolean("已登入")){
+                    BukkitRunnable BukkitRunnable = new BukkitRunnable(){
+                        @Override
+                        public void run() {
+                            if(main.getPeizi().登入时旁观者模式){
+                                a.getPlayer().setGameMode(main.getPeizi().服务器游戏模式);
+                            }
+                        }
+                    };
+                    BukkitRunnable.runTask(main.getMian());
                     wanjiasezi.setwanjiayidengru(a.getPlayer().getName());
                 }
             }
