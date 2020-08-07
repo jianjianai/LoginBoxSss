@@ -18,24 +18,45 @@ import java.io.IOException;
 public class mingzixianzhi implements Listener{
     @EventHandler
     public void wanjianjingru(PlayerJoinEvent a){
-        String wanjia = a.getPlayer().getName();
-        if (!wanjia.matches(main.getPeizi().允许名字范围)){
-            a.getPlayer().kickPlayer("名字必修使用"+main.getPeizi().允许名字范围+"内的字符");
-            return;
-        }
-        if(!main.getPeizi().同名大小不同禁止进入){
-            return;
-        }
-        YamlConfiguration b;
-        if(main.getPeizi().bc模式){
-            b = YamlConfiguration.loadConfiguration(new File(main.getPeizi().工作路径,"Playerlist/"+wanjia.toUpperCase()+".yml"));
-        }else {
-            b = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"Playerlist/"+wanjia.toUpperCase()+".yml"));
-        }
-        if(!b.getString("name").equals(wanjia)){
-            a.getPlayer().kickPlayer("你的名字是"+wanjia+"请使用"+b.getString("name")+"登入游戏");
-            return;
-        }
+        Thread T = new Thread(){
+            @Override
+            public void run() {
+                String wanjia = a.getPlayer().getName();
+                if (!wanjia.matches(main.getPeizi().允许名字范围)){
+                    BukkitRunnable R = new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            a.getPlayer().kickPlayer("名字必修使用"+main.getPeizi().允许名字范围+"内的字符");
+                        }
+                    };
+                    R.runTask(main.getMian());
+                    return;
+                }
+                if(!main.getPeizi().同名大小不同禁止进入) {
+                    return;
+                }
+                YamlConfiguration b;
+                if(main.getPeizi().bc模式){
+                    b = YamlConfiguration.loadConfiguration(new File(main.getPeizi().工作路径,"Playerlist/"+wanjia.toUpperCase()+".yml"));
+                }else {
+                    b = YamlConfiguration.loadConfiguration(new File(main.getMian().getDataFolder(),"Playerlist/"+wanjia.toUpperCase()+".yml"));
+                }
+                if(b.getString("name")==null){
+                    return;
+                }
+                if(!b.getString("name").equals(wanjia)){
+                    BukkitRunnable R = new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            a.getPlayer().kickPlayer("你的名字是"+wanjia+"请使用"+b.getString("name")+"登入游戏");
+                        }
+                    };
+                    R.runTask(main.getMian());
+                    return;
+                }
+            }
+        };
+        T.start();
     }
 
     @EventHandler
