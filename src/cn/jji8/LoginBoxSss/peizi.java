@@ -13,7 +13,7 @@ import java.util.List;
 
 public class peizi {
 
-    public int 登入超时时间;
+    public int 登入超时时间,最小长度,最大长度;
 
     public String 登入;
     public String 登入超时踢出玩家提示消息;
@@ -25,14 +25,14 @@ public class peizi {
     public String 登入成功1,登入成功2,登入成功后台执行命令,注册成功1,注册成功2,注册成功后台执行命令,修改密码箱子标题,修改成功1,修改成功2;
 
     public String 分割线;
-    public String 确定,取消修改密码1,取消修改密码2,输入你想修改的密码,工作路径;
+    public String 确定,取消修改密码1,取消修改密码2,输入你想修改的密码,工作路径,允许名字范围;
 
 
     public List 物品列表;
 
     public boolean 登入时旁观者模式,ip管理器;
     public boolean 声音;
-    public boolean 登入超时踢出玩家,bc模式;
+    public boolean 登入超时踢出玩家,bc模式,名字限制,同名大小不同禁止进入;
 
     public GameMode 服务器游戏模式;
 
@@ -45,6 +45,7 @@ public class peizi {
         YamlConfiguration a = YamlConfiguration.loadConfiguration(new File(main.mian.getDataFolder(),"peizi.yml"));
         Bukkit.getLogger().info("[箱子登入X]:§a开始加载配置");
         //string
+        if(a.contains("允许名字范围")){ 允许名字范围 = a.getString("允许名字范围");}else{System.out.println("[箱子登入]：§c允许名字范围置文件错误，请检查配置文件");}
         if(a.contains("工作路径")){ 工作路径 = a.getString("工作路径");}else{System.out.println("[箱子登入]：§c工作路径置文件错误，请检查配置文件");}
         if(a.contains("修改成功1")){ 修改成功1 = a.getString("修改成功1");}else{System.out.println("[箱子登入]：§c修改成功1置文件错误，请检查配置文件");}
         if(a.contains("修改成功2")){ 修改成功2 = a.getString("修改成功2");}else{System.out.println("[箱子登入]：§c修改成功2置文件错误，请检查配置文件");}
@@ -74,7 +75,9 @@ public class peizi {
         try {  确定按钮物品 = new ItemStack(Material.getMaterial(a.getString("确定按钮物品")));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c确定按钮物品配置文件错误，已替换为基岩，请检查配置文件"); 确定按钮物品 = new ItemStack(Material.BEDROCK);}
         try { 重新输入按钮物品 = new ItemStack(Material.getMaterial(a.getString("重新输入按钮物品")));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c重新输入按钮物品配置文件错误，已替换为基岩，请检查配置文件"); 重新输入按钮物品 = new ItemStack(Material.BEDROCK);}
         //booble
-        if(a.contains("bc模式")){ bc模式=a.getBoolean("bc模式");}else{System.out.println("[箱子登入]：§cipbc模式配置文件错误，请检查配置文件");}
+        if(a.contains("同名大小不同禁止进入")){ 同名大小不同禁止进入=a.getBoolean("同名大小不同禁止进入");}else{System.out.println("[箱子登入]：§c同名大小不同禁止进入配置文件错误，请检查配置文件");}
+        if(a.contains("名字限制")){ 名字限制=a.getBoolean("名字限制");}else{System.out.println("[箱子登入]：§c名字限制配置文件错误，请检查配置文件");}
+        if(a.contains("bc模式")){ bc模式=a.getBoolean("bc模式");}else{System.out.println("[箱子登入]：§cbc模式配置文件错误，请检查配置文件");}
         if(a.contains("ip管理器")){ ip管理器=a.getBoolean("ip管理器");}else{System.out.println("[箱子登入]：§cip管理器配置文件错误，请检查配置文件");}
         if(a.contains("登入时旁观者模式")){ 登入时旁观者模式=a.getBoolean("登入时旁观者模式");}else{System.out.println("[箱子登入]：§c登入时旁观者模式配置文件错误，请检查配置文件");}
         if(a.contains("登入超时踢出玩家")){  登入超时踢出玩家=a.getBoolean("登入超时踢出玩家");}else{System.out.println("[箱子登入]：§c登入超时踢出玩家配置文件错误，请检查配置文件"); }
@@ -82,6 +85,8 @@ public class peizi {
         //gamemode
         try {  服务器游戏模式 = GameMode.valueOf(a.getString("服务器游戏模式"));}catch (Throwable ssss){ System.out.println("[箱子登入]：§c服务器游戏模式配置文件错误已自动设置为生存，请检查配置文件"); 服务器游戏模式 = GameMode.SURVIVAL;}
         //int
+        if(a.contains("最小长度")){  最小长度 = a.getInt("最小长度");}else{System.out.println("[箱子登入]：§c最小长度配置文件错误，请检查配置文件");}
+        if(a.contains("最大长度")){  最大长度 = a.getInt("最大长度");}else{System.out.println("[箱子登入]：§c最大长度配置文件错误，请检查配置文件");}
         if(a.contains("登入超时时间")){  登入超时时间 = a.getInt("登入超时时间");}else{System.out.println("[箱子登入]：§c登入超时时间配置文件错误，请检查配置文件");}
         //list
         List wp = a.getStringList("选择物品");

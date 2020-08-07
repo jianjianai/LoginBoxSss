@@ -4,6 +4,7 @@ import cn.jji8.LoginBoxSss.chaoshiguanli.chaoshiguanli;
 import cn.jji8.LoginBoxSss.ip.ipxianzi;
 import cn.jji8.LoginBoxSss.kongziqi.BCmoshi;
 import cn.jji8.LoginBoxSss.kongziqi.dengrukongzhiqi;
+import cn.jji8.LoginBoxSss.kongziqi.mingzixianzhi;
 import cn.jji8.LoginBoxSss.kongziqi.wanjiakongzhiqi;
 import cn.jji8.LoginBoxSss.ml.qxcxzc;
 import cn.jji8.LoginBoxSss.ml.xgmm;
@@ -49,6 +50,11 @@ public class main extends JavaPlugin {
             BCmoshi BCmoshi = new BCmoshi();
             Bukkit.getPluginManager().registerEvents(BCmoshi,this);
         }
+        //名字限制
+       if(peizi.名字限制){
+            mingzixianzhi mingzixianzhi = new mingzixianzhi();
+            Bukkit.getPluginManager().registerEvents(mingzixianzhi,this);
+       }
         Bukkit.getLogger().info("[箱子登入X]:载入完成");
     }
 }
