@@ -26,6 +26,7 @@ public class BCmoshi implements Listener{
                     BukkitRunnable BukkitRunnable = new BukkitRunnable(){
                         @Override
                         public void run() {
+                            a.getPlayer().closeInventory();
                             if(main.getPeizi().登入时旁观者模式){
                                 a.getPlayer().setGameMode(main.getPeizi().服务器游戏模式);
                             }
