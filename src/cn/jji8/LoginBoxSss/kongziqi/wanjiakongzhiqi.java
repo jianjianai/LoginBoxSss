@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -54,6 +55,13 @@ public class wanjiakongzhiqi implements Listener {
     public void wanjia(PlayerDropItemEvent dj){//玩家丢弃物品时
         panduandengru(dj, dj.getPlayer());
     }
+    @EventHandler
+    public void wanjia(InventoryClickEvent dj){//玩家点击
+        if(biao.contains(dj.getWhoClicked().getName())){
+            return;
+        }
+        dengrukongzhiqi.wanjiadianji(dj);
+    }
     /**
      * 用于判断玩家是否登入，未当然则取消事件
      * */
@@ -76,6 +84,7 @@ public class wanjiakongzhiqi implements Listener {
     }
     @EventHandler
     public void wanjialikai(PlayerQuitEvent a){//玩家离开时删掉
+        dengrukongzhiqi.wanjialikai(a);
         biao.remove(a.getPlayer().getName());
     }
 }

@@ -28,9 +28,6 @@ public class main extends JavaPlugin {
         //注册玩家控制器
         wanjiakongzhiqi wanjiakongzhiqi = new wanjiakongzhiqi();
         Bukkit.getPluginManager().registerEvents(wanjiakongzhiqi ,this);
-        //注册登入控制器
-        dengrukongzhiqi dengrukongzhiqi  = new dengrukongzhiqi();
-        Bukkit.getPluginManager().registerEvents(dengrukongzhiqi,this);
         //注册命令
         Bukkit.getPluginCommand("xgmm").setExecutor(new xgmm());
         Bukkit.getPluginCommand("qzwjcxzc").setExecutor(new qxcxzc());
