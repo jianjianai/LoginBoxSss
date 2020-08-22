@@ -52,6 +52,10 @@ public class wanjiakongzhiqi implements Listener {
         panduandengru(dj, dj.getPlayer());
     }
     @EventHandler
+    public void wanjia(PlayerTeleportEvent dj){//玩家传送事件
+        panduandengru(dj, dj.getPlayer());
+    }
+    @EventHandler
     public void wanjia(PlayerDropItemEvent dj){//玩家丢弃物品时
         panduandengru(dj, dj.getPlayer());
     }
