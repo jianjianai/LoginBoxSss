@@ -1,6 +1,6 @@
 name: LoginBoxSss
 main: cn.jji8.LoginBoxSss.main
-version: 2.8
+version: 2.9
 author: jianjianai
 api-version: 1.13
 commands:

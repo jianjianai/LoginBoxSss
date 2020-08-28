@@ -20,11 +20,13 @@ public class main extends JavaPlugin {
     public static peizi getPeizi() {
         return peizi;
     }
+    Metrics Metrics;
 
     public void onEnable(){
         Bukkit.getLogger().info("[箱子登入X]:正在载入...");
         mian = this;
         peizi = new peizi();
+        Metrics = new Metrics(this,8678);
         //注册玩家控制器
         wanjiakongzhiqi wanjiakongzhiqi = new wanjiakongzhiqi();
         Bukkit.getPluginManager().registerEvents(wanjiakongzhiqi ,this);
